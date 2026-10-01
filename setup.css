@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap');
 
 .racing-sans-one-regular {
@@ -16,6 +15,7 @@ body {
     margin: 0;
     padding: 40px 20px;
 }
+
 main {
     display: block;
     max-width: 950px;
@@ -30,24 +30,25 @@ main {
     font-style: normal;
 }
 
-    h1 {
-        font-family: "Racing Sans One", sans-serif !important;
-        margin-top: 0;
-        color: #FFFFFF;
-        text-align: center;
-        font-size: 2em;
-        letter-spacing: 1.5px;
-        text-transform: uppercase;
-    }
-    h2 {
-        font-family: "Racing Sans One", sans-serif !important;
-        text-align: center;
-        color: #212121;
-        margin-bottom: 1.5em;
-        font-size: 1.9em;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-    }
+h1 {
+    font-family: "Racing Sans One", sans-serif ;
+    margin-top: 0;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 2em;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-family: "Racing Sans One", sans-serif ;
+    text-align: center;
+    color: #212121;
+    margin-bottom: 1.5em;
+    font-size: 1.9em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
 
 /* Race Setup Log Table Styling */
 table {
@@ -58,10 +59,11 @@ table {
     border-radius: 6px;
     overflow: hidden;
     border: 1px solid #E0E0E0;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 th {
-    font-family: "Racing Sans One", sans-serif !important;
+    font-family: "Racing Sans One", sans-serif ;
     background-color: #000000;
     color: #FFFFFF;
     font-weight: 600;
@@ -72,13 +74,12 @@ th {
 }
 
 td {
-    font-family: "Science Gothic", sans-serif;   
-    padding: 12px;
-    border-bottom: 1px solid #000000;
+    padding: 12px 16px;
+    border-bottom: 1px solid #E5E7EB;
     text-align: center;
     vertical-align: middle;
-    font-size: 1.2em;
-    color: #333333;
+    font-size: 0.95em;
+    color: #374151;
 }
 
 tr:nth-child(even) td {
@@ -89,69 +90,110 @@ tr:hover td {
     background-color: #EEF2F6;
 }
 
-/* Form Layout */
+/* Clean Stacked Form */
 form {
-    display: grid;
-    grid-template-columns: 200px 280px;
-    gap: 16px 12px;
-    justify-content: center;
-    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    max-width: 550px;
     margin: 20px auto;
-    align-items: center;
     background: #F8F9FA;
-    padding: 25px;
-    border-radius: 6px;
+    padding: 30px;
+    border-radius: 8px;
     border: 1px solid #E0E0E0;
-    
+    box-sizing: border-box;
 }
 
 form label {
-    font-weight: 500;
-    text-align: right;
-    color: #000000;
-    font-size: 1.5em;
+    font-weight: 600;
+    text-align: left;
+    color: #212121;
+    font-size: 1.1em;
+    margin-bottom: 6px;
+    margin-top: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
+form label:first-of-type {
+    margin-top: 0;
+}
+
+/* Force ALL input types to be identical */
 form input[type="text"],
-form input[type="date"] {
-    width: 100%;
-    padding: 12px 16px;
-    border: 1px solid #CCCCCC;
-    border-radius: 4px;
-    font-size: 18px;
-    box-sizing: border-box;
-    transition: border-color 0.2s ease;
+form input[type="date"],
+form input[type="email"] {
+    width: 70% ;
+    justify-items: left;
+    padding: 12px 14px ;
+    border: 1px solid #CCCCCC ;
+    border-radius: 4px ;
+    font-size: 16px ;
+    font-family: sans-serif !;
+    box-sizing: border-box !;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 form input[type="text"]:focus,
-form input[type="date"]:focus {
-    border-color: #D32F2F;
+form input[type="date"]:focus,
+form input[type="email"]:focus {
+    border-color: #D32F2F ;
+    box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.15);
     outline: none;
 }
+
 form input[type="submit"] {
-    padding: 12px 24px;
+    margin-top: 24px;
+    padding: 12px 20px;
     background-color: #D32F2F;
     color: #FFFFFF;
     border: none;
     border-radius: 4px;
     font-family: "Racing Sans One", sans-serif;
-    font-weight: 600;
-    font-style: normal;
+    font-size: 1.1em;
     text-transform: uppercase;
     letter-spacing: 1px;
     cursor: pointer;
-    justify-self: start;
     transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
 form input[type="submit"]:hover {
-    background-color: #fa0000;
+    background-color: #B71C1C;
     transform: translateY(-1px);
 }
 
+/* Action forms inside tables */
+table td form {
+    display: inline-block;
+    margin: 0 auto;
+    padding: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    text-align: center;
+}
+
+.btn-delete, 
+table td form input[type="submit"] {
+    background-color: #D32F2F;
+    color: #FFFFFF;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 4px;
+    font-family: "Racing Sans One", sans-serif;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+table td form input[type="submit"],
+.btn-action,
+.btn-delete {
+    display: inline-block;
+    margin: 0 auto;
+    text-align: center;
+}
 a {
     color: #D32F2F;
-    font-size: 2em;
+    font-size: 1.5em;
     font-weight: 600;
     text-decoration: none;
     transition: color 0.2s ease;
@@ -164,7 +206,9 @@ a:hover {
 
 p {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 40px;
+    font-size: 30px;
+    color: #3fc421;
 }
 
 footer h2 {
@@ -172,4 +216,49 @@ footer h2 {
     font-size: 0.85em;
     letter-spacing: 0.5px;
     margin-top: 30px;
+}
+/* Table Action Buttons (Edit & Delete) */
+table td form input[type="submit"],
+.btn-action {
+    background-color: #D32F2F ;
+    color: #FFFFFF ;
+    border: none ;
+    padding: 8px 16px ;
+    border-radius: 4px ;
+    font-family: "Racing Sans One", sans-serif ;
+    font-size: 0.9em ;
+    text-transform: uppercase ;
+    cursor: pointer ;
+    display: inline-block ;
+    visibility: visible ;
+    opacity: 1 ;
+}
+
+table td form input[type="submit"]:hover,
+.btn-action:hover {
+    background-color: #B71C1C ;
+}
+/* Button Links (Add New Profile / Setup) */
+a.btn-add {
+    display: inline-block;
+    background-color: #D32F2F ;
+    color: #FFFFFF ;
+    font-family: "Racing Sans One", sans-serif ;
+    font-size: 1em ;
+    text-transform: uppercase ;
+    letter-spacing: 1px ;
+    text-decoration: none ;
+    padding: 10px 22px ;
+    border-radius: 6px ;
+    box-shadow: 0 3px 6px rgba(211, 47, 47, 0.25) ;
+    transition: all 0.2s ease ;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+a.btn-add:hover {
+    background-color: #B71C1C ;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(183, 28, 28, 0.35) ;
+    text-decoration: none ;
 }

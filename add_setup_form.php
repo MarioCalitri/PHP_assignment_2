@@ -35,7 +35,7 @@
                 <input type="submit" value="Add Setup">
             </form>
 
-            <p><a href="index.php">View Race Setup List</a></p>
+            <p><a href="index.php" class="btn-add"> Crew Chief Dashboard</a></p>
 
         </main>
 
