@@ -20,26 +20,37 @@
     <?php include("header.php"); ?>
 
     <main>
-        <h2>PROFILE LOG</h2>
+        <h2>Driver Profiles</h2>
 
         <table>
             <tr>
+                <th>Image</th>
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Team Name</th>
                 <th>Email Address</th>
+                <th>Car Type</th>
                 <th>Edit</th>
                 <th>Delete</th>
+                <th>Details</th>
             </tr>
 
         <?php foreach ($profiles as $profile) :
-            $emailVal = isset($profile['email']) ? $profile['email'] : (isset($profile['emailAddress']) ? $profile['emailAddress'] : '');
+            $emailVal = isset($profile['emailAddress']) ? $profile['emailAddress'] : (isset($profile['email']) ? $profile['email'] : '');
         ?>
             <tr>
+                <td>
+                    <?php if (!empty($profile['imageName'])) : ?>
+                        <img src="images/<?php echo htmlspecialchars($profile['imageName']); ?>" 
+                            alt="Profile" 
+                            onerror="this.src='images/placeholder_100.jpg';">
+                    <?php endif; ?>
+                </td>
                 <td><?php echo htmlspecialchars($profile['firstName']); ?></td>
                 <td><?php echo htmlspecialchars($profile['lastName']); ?></td>
                 <td><?php echo htmlspecialchars($profile['teamName']); ?></td>
                 <td><?php echo htmlspecialchars($emailVal); ?></td>
+                <td><?php echo htmlspecialchars($profile['carType']); ?></td>
                 <td>
                     <form action="update_profile_form.php" method="post">
                         <input type="hidden" name="profile_id" value="<?php echo $profile['profileID']; ?>">
@@ -49,7 +60,13 @@
                 <td>
                     <form action="delete_profile.php" method="post">
                         <input type="hidden" name="profile_id" value="<?php echo $profile['profileID']; ?>">
-                        <input type="submit" value="Delete">
+                        <input type="submit" value="DELETE" class="btn-delete">
+                    </form>
+                </td>
+                <td>
+                    <form action="profile_details.php" method="post">
+                        <input type="hidden" name="profile_id" value="<?php echo $profile['profileID']; ?>">
+                        <input type="submit" value="DETAILS" class="btn-action">
                     </form>
                 </td>
             </tr>
@@ -57,7 +74,8 @@
         
         </table>
 
-        <p><a href="add_profile_form.php">Add New Crew Chief Profile</a></p>
+        <p><a href="add_profile_form.php" class="btn-add">Add New Crew Chief Driver Profile</a></p>
+        <p><a href="index.php" class="btn-add">Crew Chief - Dashboard</a></p>
 
     </main>
 

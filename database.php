@@ -1,5 +1,9 @@
 <?php
-    session_start();
+
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }   
+    
     $dsn = 'mysql:host=localhost;dbname=race_setup_2026';
     $username = 'root';
     $password = '';

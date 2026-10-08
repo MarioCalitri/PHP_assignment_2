@@ -21,7 +21,7 @@ main {
     max-width: 950px;
     margin: 0 auto;
     padding: 2.5em;
-    background: #fff;
+    background: #ffffff;
     border-radius: 8px;
     border-top: 6px solid #D32F2F;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
@@ -31,7 +31,7 @@ main {
 }
 
 h1 {
-    font-family: "Racing Sans One", sans-serif ;
+    font-family: "Racing Sans One", sans-serif;
     margin-top: 0;
     color: #FFFFFF;
     text-align: center;
@@ -41,7 +41,7 @@ h1 {
 }
 
 h2 {
-    font-family: "Racing Sans One", sans-serif ;
+    font-family: "Racing Sans One", sans-serif;
     text-align: center;
     color: #212121;
     margin-bottom: 1.5em;
@@ -50,7 +50,6 @@ h2 {
     letter-spacing: 1px;
 }
 
-/* Race Setup Log Table Styling */
 table {
     width: 100%;
     border-collapse: separate;
@@ -63,18 +62,20 @@ table {
 }
 
 th {
-    font-family: "Racing Sans One", sans-serif ;
+    font-family: "Racing Sans One", sans-serif;
     background-color: #000000;
     color: #FFFFFF;
     font-weight: 600;
     text-transform: uppercase;
-    font-size: 1.5em;
+    font-size: 1.2em;
     letter-spacing: 1px;
     padding: 14px 12px;
+    text-align: center;
+    vertical-align: middle;
 }
 
 td {
-    padding: 12px 16px;
+    padding: 12px 14px;
     border-bottom: 1px solid #E5E7EB;
     text-align: center;
     vertical-align: middle;
@@ -90,7 +91,17 @@ tr:hover td {
     background-color: #EEF2F6;
 }
 
-/* Clean Stacked Form */
+table td img {
+    display: block;
+    margin: 0 auto;
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+    border-radius: 50%; 
+    border: 2px solid #D32F2F;
+    background-color: #F5F5F5;
+}
+
 form {
     display: flex;
     flex-direction: column;
@@ -118,27 +129,43 @@ form label:first-of-type {
     margin-top: 0;
 }
 
-/* Force ALL input types to be identical */
 form input[type="text"],
 form input[type="date"],
-form input[type="email"] {
-    width: 70% ;
-    justify-items: left;
-    padding: 12px 14px ;
-    border: 1px solid #CCCCCC ;
-    border-radius: 4px ;
-    font-size: 16px ;
-    font-family: sans-serif !;
-    box-sizing: border-box !;
+form input[type="email"],
+form select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #CCCCCC;
+    border-radius: 4px;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+form input[type="file"] {
+    margin-top: 6px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #333;
 }
 
 form input[type="text"]:focus,
 form input[type="date"]:focus,
-form input[type="email"]:focus {
-    border-color: #D32F2F ;
+form input[type="email"]:focus,
+form select:focus {
+    border-color: #D32F2F;
     box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.15);
     outline: none;
+}
+
+#update_profile_form img,
+form img {
+    margin: 10px 0;
+    border-radius: 6px;
+    border: 1px solid #DDD;
+    object-fit: cover;
+    align-self: flex-start;
 }
 
 form input[type="submit"] {
@@ -161,7 +188,6 @@ form input[type="submit"]:hover {
     transform: translateY(-1px);
 }
 
-/* Action forms inside tables */
 table td form {
     display: inline-block;
     margin: 0 auto;
@@ -172,28 +198,33 @@ table td form {
     text-align: center;
 }
 
-.btn-delete, 
-table td form input[type="submit"] {
+table td form input[type="submit"],
+.btn-action,
+.btn-delete {
     background-color: #D32F2F;
     color: #FFFFFF;
     border: none;
-    padding: 6px 14px;
+    padding: 8px 16px;
     border-radius: 4px;
     font-family: "Racing Sans One", sans-serif;
     font-size: 0.9em;
     text-transform: uppercase;
     cursor: pointer;
-}
-table td form input[type="submit"],
-.btn-action,
-.btn-delete {
     display: inline-block;
     margin: 0 auto;
     text-align: center;
+    transition: background-color 0.2s ease;
 }
+
+table td form input[type="submit"]:hover,
+.btn-action:hover,
+.btn-delete:hover {
+    background-color: #B71C1C;
+}
+
 a {
     color: #D32F2F;
-    font-size: 1.5em;
+    font-size: 1.2em;
     font-weight: 600;
     text-decoration: none;
     transition: color 0.2s ease;
@@ -206,9 +237,33 @@ a:hover {
 
 p {
     text-align: center;
-    margin-top: 40px;
-    font-size: 30px;
-    color: #3fc421;
+    margin-top: 30px;
+    font-size: 28px;
+    color: #000000;
+}
+
+a.btn-add {
+    display: inline-block;
+    background-color: #D32F2F;
+    color: #FFFFFF;
+    font-family: "Racing Sans One", sans-serif;
+    font-size: 1em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    padding: 10px 22px;
+    border-radius: 6px;
+    box-shadow: 0 3px 6px rgba(211, 47, 47, 0.25);
+    transition: all 0.2s ease;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+a.btn-add:hover {
+    background-color: #B71C1C;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(183, 28, 28, 0.35);
+    text-decoration: none;
 }
 
 footer h2 {
@@ -217,48 +272,180 @@ footer h2 {
     letter-spacing: 0.5px;
     margin-top: 30px;
 }
-/* Table Action Buttons (Edit & Delete) */
-table td form input[type="submit"],
-.btn-action {
-    background-color: #D32F2F ;
-    color: #FFFFFF ;
-    border: none ;
-    padding: 8px 16px ;
-    border-radius: 4px ;
-    font-family: "Racing Sans One", sans-serif ;
-    font-size: 0.9em ;
-    text-transform: uppercase ;
-    cursor: pointer ;
-    display: inline-block ;
-    visibility: visible ;
-    opacity: 1 ;
+.driver-card {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
-table td form input[type="submit"]:hover,
-.btn-action:hover {
-    background-color: #B71C1C ;
+.driver-header {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    margin-bottom: 30px;
 }
-/* Button Links (Add New Profile / Setup) */
-a.btn-add {
+
+.driver-header img {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 4px solid #D32F2F;
+}
+
+.driver-info h2 {
+    margin: 0;
+    font-size: 2rem;
+    color: #111;
+}
+
+.badge {
     display: inline-block;
-    background-color: #D32F2F ;
-    color: #FFFFFF ;
-    font-family: "Racing Sans One", sans-serif ;
-    font-size: 1em ;
-    text-transform: uppercase ;
-    letter-spacing: 1px ;
-    text-decoration: none ;
-    padding: 10px 22px ;
-    border-radius: 6px ;
-    box-shadow: 0 3px 6px rgba(211, 47, 47, 0.25) ;
-    transition: all 0.2s ease ;
+    background: #D32F2F;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
     margin-top: 10px;
-    margin-bottom: 20px;
 }
 
-a.btn-add:hover {
-    background-color: #B71C1C ;
+.details-grid {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 15px;
+}
+
+.label {
+    font-weight: bold;
+    color: #D32F2F;
+}
+main.profile-page {
+    max-width: 800px !important;
+    margin: 30px auto !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.profile-card {
+    background: #161B22;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+    border: 1px solid #30363D;
+    border-top: 5px solid #D32F2F;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    padding: 30px;
+    background: #0D1117;
+    border-bottom: 1px solid #21262D;
+}
+
+.profile-photo img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid #30363D;
+    display: block;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.profile-title {
+    flex: 1;
+}
+
+.profile-title h1 {
+    color: #FFFFFF !important;
+    margin: 0 0 10px 0 !important;
+    font-size: 2.2rem !important;
+    font-family: "Racing Sans One", sans-serif !important;
+    letter-spacing: 1.5px;
+    text-align: left !important;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.driver-badge {
+    display: inline-block;
+    background: #D32F2F;
+    color: #FFFFFF;
+    padding: 6px 16px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    font-family: "Racing Sans One", sans-serif !important;
+    letter-spacing: 1px;
+}
+
+.profile-title p.team-name {
+    color: #8B949E !important;
+    margin: 14px 0 0 0 !important;
+    font-size: 1.1rem !important;
+    text-align: left !important;
+    font-family: "Racing Sans One", sans-serif !important;
+    letter-spacing: 1px;
+}
+
+.profile-details {
+    padding: 10px 30px 20px;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+    border-bottom: 1px solid #21262D;
+    font-family: "Racing Sans One", sans-serif !important;
+}
+
+.detail-row:last-child {
+    border-bottom: none;
+}
+
+.detail-row .label {
+    color: #D32F2F;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.detail-row .value {
+    color: #E6EDF3;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+}
+
+.profile-actions {
+    text-align: center;
+    padding: 10px 30px 30px;
+}
+
+.btn-back {
+    display: inline-block;
+    background: #D32F2F !important;
+    color: #FFFFFF !important;
+    text-decoration: none !important;
+    padding: 12px 28px;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: "Racing Sans One", sans-serif !important;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(211, 47, 47, 0.3);
+}
+
+.btn-back:hover {
+    background: #B71C1C !important;
     transform: translateY(-2px);
-    box-shadow: 0 5px 12px rgba(183, 28, 28, 0.35) ;
-    text-decoration: none ;
+    box-shadow: 0 6px 18px rgba(183, 28, 28, 0.5);
+    text-decoration: none !important;
 }
